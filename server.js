@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 const colors = require('colors');
 const morgan = require('morgan');
 const connectDB = require('./config/db')
+const cors = require('cors');
 
 //to access config.env
 dotenv.config({ path: './config/config.env' })
@@ -12,6 +13,13 @@ connectDB();
 const trasactions = require('./routes/transactions')
 
 const app = express();
+
+var corsOptions = {
+    origin: 'http://localhost:3000',
+    optionsSuccessStatus: 200 // For legacy browser support
+};
+
+app.use(cors(corsOptions));
 
 //body parser for adding task
 app.use(express.json())

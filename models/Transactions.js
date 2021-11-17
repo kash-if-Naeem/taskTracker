@@ -8,19 +8,19 @@ const TransactionsSchema = new mongoose.Schema({
     },
     description: {
         type: String,
-        required: [true, 'Please add a positive or negative number']
+        required: [true, 'Please add a description']
     },
     activity: {
         type: String,
-        required: [true, 'Please add a positive or negative number']
+        required: [true, 'Please add an activity']
     },
     duration: {
         type: Number,
-        required: [true, 'Please add a positive or negative number']
+        required: [true, 'Please add a positive number']
     },
     date: {
-        type: Date,
-        required: [true, 'Please add a positive or negative number']
+        type: Number,
+        required: [true, 'Please add a date']
     },
     createdAt: {
         type: Date,

@@ -1,5 +1,15 @@
 const Transaction = require('../models/Transactions')
 
+var corsOptions = {
+    origin: function (origin, callback) {
+      // db.loadOrigins is an example call to load
+      // a list of origins from a backing database
+      db.loadOrigins(function (error, origins) {
+        callback(error, origins)
+      })
+    }
+  }
+
 exports.getTransactions = async (req, res, next) => {
     try {
         const transactions = await Transaction.find();
@@ -87,7 +97,7 @@ exports.updateTransactions = async (req, res, next) => {
           })
 
 
-        if(!transaction){
+        if(transaction){
             return res.status(404).json({
                 success: false,
                 error: 'No transaction found'
