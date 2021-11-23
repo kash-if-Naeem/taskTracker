@@ -10,7 +10,9 @@ dotenv.config({ path: './config/config.env' })
 
 connectDB();
 
-const trasactions = require('./routes/transactions')
+const transactions = require('./routes/transactions')
+const users = require('./routes/users')
+const auth = require('./routes/auth')
 
 const app = express();
 
@@ -28,8 +30,10 @@ if(process.env.NODE_ENV === 'development'){
     app.use(morgan('dev'))
 }
 
-app.use('/api/v1/transactions', trasactions)
+app.use('/api/v1/transactions', transactions)
+app.use('/api/v1/users', users)
+app.use('/api/v1/auth', auth)
 
 const PORT = process.env.PORT || 5000
 
-app.listen(PORT, console.log(`Server is running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold));
+app.listen(PORT, console.log(`Server is running on port ${PORT}`.yellow.bold));

@@ -1,0 +1,4 @@
+{
+    "mongoURI" : "mongodb+srv://explorer096:Kashif123@expensetracker.53cks.mongodb.net/expenseTracker?retryWrites=true&w=majority",
+    "jwtSecret": "sl_myJWTSecret"
+}
